@@ -1,0 +1,34 @@
+extends base
+block content
+  .card-container
+    each venue in venues
+      .card
+        .card__header
+          .card__picture
+            .card__picture-overlay &nbsp;
+            img.card__picture-img(src=`img/tours/${venue.imageCover}`, alt=`${venue.name}`)
+          h3.heading-tertirary
+            span=venue.name
+
+        .card__details
+          
+          p.card__text=venue.summary
+          .card__data
+            svg.card__icon
+              use(xlink:href='img/icons.svg#icon-map-pin')
+            span=venue.location
+         
+          
+          .card__data
+            svg.card__icon
+              use(xlink:href='img/icons.svg#icon-user')
+            span=`${venue.NoOfPeople} people`
+
+        .card__footer
+          p
+            span.card__footer-value=`$${venue.price}`
+            span.card__footer-text per person
+          p.card__ratings
+            span.card__footer-value=venue.rating 
+            span.card__footer-text=`rating (${venue.ratingsQuantity})  `
+          a.btn.btn--green.btn--small(href=`/venue/${venue.name}`) Details
