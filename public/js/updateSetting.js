@@ -1,20 +1,15 @@
 export const hideAlert = () => {
   const error = document.querySelector(".alert");
   if (error) error.parentElement.removeChild(error);
-  console.log(error);
 };
 export const showAlert = (type, msg) => {
   hideAlert();
   const markUp = `<div class=alert alert--${type}>${msg}</div>`;
-  console.log(
-    document.querySelector(".body"),
-    document.querySelector(".header")
-  );
+
   document.querySelector(".header").insertAdjacentHTML("afterbegin", markUp);
   window.setTimeout(hideAlert, 5000);
 };
 export const upDateFoms = async (val, url) => {
-  console.log(val);
   try {
     const address =
       url === "password"

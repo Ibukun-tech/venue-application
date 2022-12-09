@@ -13,15 +13,11 @@ if (bookingTour) {
 export const hideAlert = () => {
   const error = document.querySelector(".alert");
   if (error) error.parentElement.removeChild(error);
-  console.log(error);
 };
 export const showAlert = (type, msg) => {
   hideAlert();
   const markUp = `<div class=alert alert--${type}>${msg}</div>`;
-  console.log(
-    document.querySelector(".body"),
-    document.querySelector(".header")
-  );
+
   document.querySelector(".header").insertAdjacentHTML("afterbegin", markUp);
   window.setTimeout(hideAlert, 5000);
 };
@@ -29,7 +25,7 @@ const form = document.querySelector(".form");
 const logout = document.querySelector(".nav__el-logout");
 const updateForm = document.querySelector(".form-user-data");
 const updatePasswordForm = document.querySelector(".form-user-settings");
-console.log(form);
+
 if (updatePasswordForm) {
   updatePasswordForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -57,12 +53,12 @@ if (form) {
     const password = document.getElementById("password").value;
 
     logIn({ email, password });
-    console.log(email, password);
+
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
   });
 }
-console.log(LogOut);
+
 if (LogOut) {
   LogOut.addEventListener("click", function (e) {
     logOut();

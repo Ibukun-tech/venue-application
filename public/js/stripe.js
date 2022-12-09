@@ -10,12 +10,9 @@ export const booking = async (id) => {
       },
       url: `http://127.0.0.1:2000/api/v1/bookings/create-checkout-session`,
     });
-    console.log(session);
-    // await stripe.directToCheckout({
-    //   session: session.data.session.id,
-    // });
+    await stripe.directToCheckout({
+      session: session.data.session.id,
+    });
     // window.location.replace(session.data.session.url);
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };

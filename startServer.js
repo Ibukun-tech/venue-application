@@ -5,6 +5,7 @@ const ApiError = require("./Utility/ApiError");
 const { errorController } = require("./Controller/errorController");
 const bookingRouter = require("./Route/bookingRoute");
 const viewRouter = require("./Route/viewRoute");
+const compression = require("compression");
 const reviewRouter = require("./Route/reviewRoute");
 const venueRouter = require("./Route/houseRoute");
 const userRouter = require("./Route/userRoute");
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
   console.log("you are in there");
   next();
 });
+app.use(compression());
 app.use("/", viewRouter);
 app.use("/api/v1/review", reviewRouter);
 app.use("/api/v1/user", userRouter);

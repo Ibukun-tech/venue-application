@@ -2,15 +2,10 @@
 export const hideAlert = () => {
   const error = document.querySelector(".alert");
   if (error) error.parentElement.removeChild(error);
-  console.log(error);
 };
 export const showAlert = (type, msg) => {
   hideAlert();
   const markUp = `<div class=alert alert--${type}>${msg}</div>`;
-  console.log(
-    document.querySelector(".body"),
-    document.querySelector(".header")
-  );
   document.querySelector(".header").insertAdjacentHTML("afterbegin", markUp);
   window.setTimeout(hideAlert, 5000);
 };
@@ -26,7 +21,7 @@ export const logIn = async function (val) {
     });
     const res = await data.json();
     // if ()
-    console.log(data, res);
+
     if (res.status === "success") {
       showAlert("succesfuly", "you have been logged in");
       window.setTimeout(() => {
@@ -36,7 +31,6 @@ export const logIn = async function (val) {
       showAlert("error", res.message);
     }
   } catch (err) {
-    console.log(err);
     showAlert("error", "its not successful");
   }
 };
@@ -51,7 +45,5 @@ export const logOut = async () => {
         location.assign("/login");
       }, 5000);
     }
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };

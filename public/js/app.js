@@ -6,7 +6,6 @@ function $parcel$interopDefault(a) {
 
 const $70af9284e599e604$export$dcb3afa56f3b80bd = async function (val) {
   await (0, $parcel$interopDefault($knI9B$axios))();
-  console.log(val);
 }; // export default logIn;
 
 // logIn();
@@ -20,8 +19,6 @@ if ($d0f7ce18c37ad6f6$var$form)
       email: email,
       password: password,
     });
-    console.log(email, password);
   });
-console.log("welcome home");
 
 //# sourceMappingURL=app.js.map
