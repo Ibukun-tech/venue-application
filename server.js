@@ -18,7 +18,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-const PORT = 2000;
+const PORT = process.env.PORT || 2000;
 const server = app.listen(PORT, "127.0.0.1", () => {
   console.log(`you are listening at port 2000`);
 });

@@ -8,12 +8,10 @@ $parcel$export(module.exports, "showAlert", () => $d0f7ce18c37ad6f6$export$de026
 const $70af9284e599e604$export$516836c6a9dfc573 = ()=>{
     const error = document.querySelector(".alert");
     if (error) error.parentElement.removeChild(error);
-    console.log(error);
 };
 const $70af9284e599e604$export$de026b00723010c1 = (type, msg)=>{
     $70af9284e599e604$export$516836c6a9dfc573();
     const markUp = `<div class=alert alert--${type}>${msg}</div>`;
-    console.log(document.querySelector(".body"), document.querySelector(".header"));
     document.querySelector(".header").insertAdjacentHTML("afterbegin", markUp);
     window.setTimeout($70af9284e599e604$export$516836c6a9dfc573, 5000);
 };
@@ -28,7 +26,6 @@ const $70af9284e599e604$export$dcb3afa56f3b80bd = async function(val) {
         });
         const res = await data.json();
         // if ()
-        console.log(data, res);
         if (res.status === "success") {
             $70af9284e599e604$export$de026b00723010c1("succesfuly", "you have been logged in");
             window.setTimeout(()=>{
@@ -36,7 +33,6 @@ const $70af9284e599e604$export$dcb3afa56f3b80bd = async function(val) {
             }, 5000);
         } else $70af9284e599e604$export$de026b00723010c1("error", res.message);
     } catch (err) {
-        console.log(err);
         $70af9284e599e604$export$de026b00723010c1("error", "its not successful");
     }
 };
@@ -50,26 +46,21 @@ const $70af9284e599e604$export$464881f0a7cf0212 = async ()=>{
                 location.assign("/login");
             }, 5000);
         }
-    } catch (err) {
-        console.log(err);
-    }
+    } catch (err) {}
 };
 
 
 const $3fffefddab1a405a$export$516836c6a9dfc573 = ()=>{
     const error = document.querySelector(".alert");
     if (error) error.parentElement.removeChild(error);
-    console.log(error);
 };
 const $3fffefddab1a405a$export$de026b00723010c1 = (type, msg)=>{
     $3fffefddab1a405a$export$516836c6a9dfc573();
     const markUp = `<div class=alert alert--${type}>${msg}</div>`;
-    console.log(document.querySelector(".body"), document.querySelector(".header"));
     document.querySelector(".header").insertAdjacentHTML("afterbegin", markUp);
     window.setTimeout($3fffefddab1a405a$export$516836c6a9dfc573, 5000);
 };
 const $3fffefddab1a405a$export$938883bc05c38657 = async (val, url)=>{
-    console.log(val);
     try {
         const address = url === "password" ? "http://127.0.0.1:2000/api/v1/user/updatePassword" : "http://127.0.0.1:2000/api/v1/user/updateUser";
         const data = await fetch(address, {
@@ -98,14 +89,11 @@ const $6710bca62beba915$export$8252328d63b22f49 = async (id)=>{
             },
             url: `http://127.0.0.1:2000/api/v1/bookings/create-checkout-session`
         });
-        console.log(session);
-    // await stripe.directToCheckout({
-    //   session: session.data.session.id,
-    // });
+        await $6710bca62beba915$var$stripe.directToCheckout({
+            session: session.data.session.id
+        });
     // window.location.replace(session.data.session.url);
-    } catch (err) {
-        console.log(err);
-    }
+    } catch (err) {}
 };
 
 
@@ -119,12 +107,10 @@ if ($d0f7ce18c37ad6f6$var$bookingTour) $d0f7ce18c37ad6f6$var$bookingTour.addEven
 const $d0f7ce18c37ad6f6$export$516836c6a9dfc573 = ()=>{
     const error = document.querySelector(".alert");
     if (error) error.parentElement.removeChild(error);
-    console.log(error);
 };
 const $d0f7ce18c37ad6f6$export$de026b00723010c1 = (type, msg)=>{
     $d0f7ce18c37ad6f6$export$516836c6a9dfc573();
     const markUp = `<div class=alert alert--${type}>${msg}</div>`;
-    console.log(document.querySelector(".body"), document.querySelector(".header"));
     document.querySelector(".header").insertAdjacentHTML("afterbegin", markUp);
     window.setTimeout($d0f7ce18c37ad6f6$export$516836c6a9dfc573, 5000);
 };
@@ -132,7 +118,6 @@ const $d0f7ce18c37ad6f6$var$form = document.querySelector(".form");
 const $d0f7ce18c37ad6f6$var$logout = document.querySelector(".nav__el-logout");
 const $d0f7ce18c37ad6f6$var$updateForm = document.querySelector(".form-user-data");
 const $d0f7ce18c37ad6f6$var$updatePasswordForm = document.querySelector(".form-user-settings");
-console.log($d0f7ce18c37ad6f6$var$form);
 if ($d0f7ce18c37ad6f6$var$updatePasswordForm) {
     $d0f7ce18c37ad6f6$var$updatePasswordForm.addEventListener("submit", function(e) {
         e.preventDefault();
@@ -157,11 +142,9 @@ if ($d0f7ce18c37ad6f6$var$form) $d0f7ce18c37ad6f6$var$form.addEventListener("sub
         email: email,
         password: password
     });
-    console.log(email, password);
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
 });
-console.log($d0f7ce18c37ad6f6$var$LogOut);
 if ($d0f7ce18c37ad6f6$var$LogOut) $d0f7ce18c37ad6f6$var$LogOut.addEventListener("click", function(e) {
     (0, $70af9284e599e604$export$464881f0a7cf0212)();
 });
